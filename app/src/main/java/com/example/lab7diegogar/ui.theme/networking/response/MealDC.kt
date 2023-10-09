@@ -1,6 +1,6 @@
-package com.example.lab7diegogar.ui.theme.networking.dtos
+package com.example.lab7diegogar.ui.theme.networking.response
 
-data class MealDetailDto(
+data class MealDC(
     val dateMod: Any,
     val idMeal: String,
     val strArea: String,

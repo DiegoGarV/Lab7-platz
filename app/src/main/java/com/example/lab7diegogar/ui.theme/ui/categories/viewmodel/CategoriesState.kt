@@ -1,9 +1,9 @@
 package com.example.lab7diegogar.ui.theme.ui.categories.viewmodel
 
-import com.example.lab7diegogar.ui.theme.networking.dtos.CategoriesDto
+import com.example.lab7diegogar.ui.theme.networking.response.CategoriesDC
 
 data class CategoriesState(
     val loading: Boolean = false,
-    val categories: List<CategoriesDto> = emptyList(),
+    val categories: List<CategoriesDC> = emptyList(),
     val error: String = ""
 )

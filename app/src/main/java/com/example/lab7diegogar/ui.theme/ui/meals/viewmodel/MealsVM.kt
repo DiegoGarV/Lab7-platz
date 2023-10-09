@@ -4,22 +4,22 @@ import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.lab7diegogar.ui.theme.networking.dtos.MealDto
+import com.example.lab7diegogar.ui.theme.networking.response.MealDC
 import com.example.lab7diegogar.ui.theme.ui.meals.repository.MealsRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class MealsVM(private val repo: MealsRepository = MealsRepository()):ViewModel(){
-    val MealsState: MutableState<List<MealDto>> = mutableStateOf(emptyList<MealDto>())
+    val MealsState: MutableState<List<MealDC>> = mutableStateOf(emptyList())
 
     init {
         viewModelScope.launch(Dispatchers.IO){
-            val mealsDetails = getMeals()
-            MealsState.value = mealsDetails
+            val meals = getMeals()
+            MealsState.value = meals
         }
     }
 
-    private suspend fun getMeals(): List<MealDto>{
+    private suspend fun getMeals(): List<MealDC>{
         return repo.getMeals().meals
     }
 }
